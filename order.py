@@ -1,4 +1,4 @@
-import numpy
+import random as rand
 import datetime
 
 class Order:
@@ -7,7 +7,7 @@ class Order:
     def __init__(self):
         self.__orderid = Order.orderid
         Order.orderid += 1
-        self.__qty = 0
+        self.__qty = rand.randint(1,10)
         self.__timestamp = datetime.datetime.now()
         self.__ecommercename = ""
         print("Order info created")
