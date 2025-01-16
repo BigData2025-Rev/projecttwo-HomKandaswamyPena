@@ -111,22 +111,7 @@ class Transaction:
                     return 'payment method not accepted at merchant'
                 else:
                     return 'bank refused to authorize transaction'
-    
-    def get_dataframe(self):
-        
-        spark_session = SparkSingleton.getInstance()
-        schema = StructType([
-            StructField("payment_txn_id", IntegerType(), False),
-            StructField("payment_type", StringType(), False),
-            StructField("payment_txn_success", IntegerType(), False),
-            StructField("failure_reason", StringType(), False)
-        ])
-
-        df = spark_session.createDataFrame([(self.paymentTxnId, self.paymentType, self.paymentTxnSuccess, self.failureReason)], schema=schema)
-        
-        return df
-
-
+                  
     @property
     def paymentTxnId(self):
         return self.__paymentTxnId
@@ -142,6 +127,20 @@ class Transaction:
     @property
     def failureReason(self):
         return self.__failureReason
+    
+    # def get_dataframe(self):
+        
+    #     spark_session = SparkSingleton.getInstance()
+    #     schema = StructType([
+    #         StructField("payment_txn_id", IntegerType(), False),
+    #         StructField("payment_type", StringType(), False),
+    #         StructField("payment_txn_success", IntegerType(), False),
+    #         StructField("failure_reason", StringType(), False)
+    #     ])
+
+    #     df = spark_session.createDataFrame([(self.paymentTxnId, self.paymentType, self.paymentTxnSuccess, self.failureReason)], schema=schema)
+        
+    #     return df
     
     # @property
     # def cardTrend(self):
@@ -160,20 +159,20 @@ class Transaction:
     #     self.__txnSuccessRate = value
 
 
-def main():
-    """
-        Create 1000 transaction dataframes.
-    """
-    main_df: DataFrame = None
-    for i in range(1000):
-        transaction = Transaction()
-        df = transaction.get_dataframe()
-        if main_df is None:
-            main_df = df
-        else:
-            main_df = main_df.union(df)
+# def main():
+#     """
+#         Create 1000 transaction dataframes.
+#     """
+#     main_df: DataFrame = None
+#     for i in range(1000):
+#         transaction = Transaction()
+#         df = transaction.get_dataframe()
+#         if main_df is None:
+#             main_df = df
+#         else:
+#             main_df = main_df.union(df)
     
-    main_df.show(main_df.count(), truncate=False)
+#     main_df.show(main_df.count(), truncate=False)
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
