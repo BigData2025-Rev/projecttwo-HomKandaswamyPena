@@ -1,0 +1,2 @@
+order_id,customer_id,customer_name,product_id,product_name,product_category,payment_type,qty,price,datetime,country,city,ecommerce_website_name,payment_txn_id,payment_txn_success,failure_reason
+5,23,Evelyn Gonzalez,8,Lens Cleaner,Eye Care,card,4,4.99,2024-01-07T19:38:53.000-08:00,United Kingdom,Birmingham,www.1mg.com,49604244,1,payment successful

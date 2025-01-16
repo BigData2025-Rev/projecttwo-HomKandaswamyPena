@@ -1,0 +1,2 @@
+order_id,customer_id,customer_name,product_id,product_name,product_category,payment_type,qty,price,datetime,country,city,ecommerce_website_name,payment_txn_id,payment_txn_success,failure_reason
+10,5,Emily Davis,77,Body Lotion,Bath and Body,wallet,7,6.99,2024-12-22T05:44:46.000-08:00,Germany,Berlin,www.cvs.com,76709674,1,payment successful

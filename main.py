@@ -104,10 +104,27 @@ class OrderGenerator:
         return df
 
 def main():
-    rng = rand.random()
-    if rng >= 0.0 and rng <= 0.03:
-        row = OrderGenerator.get_rogue_row
-    else: row = OrderGenerator.get_row()
+    numRows = int(input("Enter number of records to generate: "))
+    name = input("Name of .csv file to write to: ")
+    
+    df = OrderGenerator.get_row()
+
+    for i in range(numRows-1):
+
+        rng = rand.random()
+
+        if rng >= 0.0 and rng <= 0.03:
+            row = OrderGenerator.get_rogue_row()
+        else: 
+            row = OrderGenerator.get_row()
+
+        df = df.union(row)
+
+    # df.show()
+
+    df.coalesce(1).write.csv(f'{name}.csv', header=True, mode='overwrite')
+
+
 
 
 

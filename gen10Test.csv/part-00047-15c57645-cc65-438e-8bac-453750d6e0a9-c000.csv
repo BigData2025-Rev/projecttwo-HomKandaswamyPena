@@ -1,0 +1,2 @@
+order_id,customer_id,customer_name,product_id,product_name,product_category,payment_type,qty,price,datetime,country,city,ecommerce_website_name,payment_txn_id,payment_txn_success,failure_reason
+4,37,Lily Sanchez,84,Ear Wax Removal Kit,"Ear, Nose, and Throat Care",internet banking,3,12.99,2024-03-05T15:13:40.000-08:00,Spain,Valencia,www.iherb.com,37541086,1,payment successful
