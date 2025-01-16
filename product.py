@@ -1,8 +1,6 @@
 import json
 import numpy as np
-from spark_singleton import SparkSingleton
-from pyspark.sql import DataFrame
-from pyspark.sql.types import StructType, StructField, StringType, IntegerType, FloatType
+
 from abc import ABC, abstractmethod
 
 PRODUCTS_FILE = "products.json"
@@ -13,12 +11,6 @@ PRODUCTS_FILE = "products.json"
 """
 
 class IProduct(ABC):
-    @abstractmethod
-    def get_dataframe(self):
-        """
-            Returns a Spark DataFrame with product information. Can be unioned or joined with other dataframes.
-        """
-        pass
 
     @staticmethod
     def get_normalized_rnd_integer(n):
@@ -55,41 +47,24 @@ class Product(IProduct):
             Initializes the product object with random properties
         """
         rnd_index = Product.get_normalized_rnd_integer(len(Product.products))
-        self._name = Product.products[rnd_index].get("name")
-        self._price = Product.products[rnd_index].get("price")
-        self._category = Product.products[rnd_index].get("category")
-        self._id = Product.products[rnd_index].get("id")
-        
-    def get_dataframe(self):
-        spark_session = SparkSingleton.getInstance()
-        schema = StructType([
-            StructField("id", IntegerType(), False),
-            StructField("name", StringType(), False),
-            StructField("price", FloatType(), False),
-            StructField("category", StringType(), False)
-        ])
-
-        df = spark_session.createDataFrame([(self._id, self._name, self._price, self._category)], schema=schema)
-        return df
-
-def test_product_creation():
-    """
-        Test function to check if the product object is created correctly.
-        Make sure it is run from the root directory. 
-        It should print a dataframe with a single row, containing product information from a randomly selected product.
-        NOTE: It takes a long time to run, as it creates 1000 product dataframes, and unions them together. 
-        Let me know if you have any optimization suggestions.
-    """
-    main_df: DataFrame = None
-    for i in range(1000):
-        product = Product()
-        df = product.get_dataframe()
-        if main_df is None:
-            main_df = df
-        else:
-            main_df = main_df.union(df)
+        self.__name = Product.products[rnd_index].get("name")
+        self.__price = Product.products[rnd_index].get("price")
+        self.__category = Product.products[rnd_index].get("category")
+        self.__id = Product.products[rnd_index].get("id")
     
-    main_df.show(main_df.count(), truncate=False)
+    @property
+    def id(self):
+        return self.__id
 
-if __name__ == "__main__":
-    test_product_creation()
+    @property
+    def name(self):
+        return self.__name
+    
+    @property
+    def price(self):
+        return self.__price
+    
+    @property
+    def category(self):
+        return self.__category
+
