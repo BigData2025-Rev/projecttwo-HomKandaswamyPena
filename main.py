@@ -94,10 +94,10 @@ class OrderGenerator:
                      transaction.paymentTxnId,
                      transaction.paymentTxnSuccess,
                      transaction.failureReason)
-        rogue_row[rand.randint(0,15)] = OrderGenerator.rogue_options[rand.randint(0,3)]
-        rogue_row[rand.randint(0,15)] = OrderGenerator.rogue_options[rand.randint(0,3)]
-        rogue_row[rand.randint(0,15)] = OrderGenerator.rogue_options[rand.randint(0,3)]
-        rogue_row[rand.randint(0,15)] = OrderGenerator.rogue_options[rand.randint(0,3)]
+        rogue_row[2] = OrderGenerator.rogue_options[rand.randint(0,3)]
+        rogue_row[5] = OrderGenerator.rogue_options[rand.randint(0,3)]
+        rogue_row[10] = OrderGenerator.rogue_options[rand.randint(0,3)]
+        rogue_row[19] = OrderGenerator.rogue_options[rand.randint(0,3)]
         df = spark_session.createDataFrame([rogue_row], 
                                              schema=schema)
         
