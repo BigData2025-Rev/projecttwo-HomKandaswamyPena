@@ -1,5 +1,5 @@
 import random as rand
-import datetime
+import datetime as dt
 import radar
 
 class Order:
@@ -30,13 +30,24 @@ class Order:
     def __init__(self):
         self.__orderid = Order.id
         Order.id += 1
-        self.__qty = rand.randint(1,10)
-        self.__timestamp = radar.random_datetime(
-            start = datetime.datetime(year=2024, month=1, day=1),
-            stop = datetime.datetime(year=2024, month=12, day=31)
-        )
-        random_ecommerce = rand.randint(0,19)
-        self.__ecommercename = Order.ecommerce_websites[random_ecommerce]
+        self.__qty = rand.randint(1,9)
+        rng = rand.random()
+        if rng >= 0.00 and rng <= 0.20:
+            self.__timestamp = radar.random_datetime(
+                start = dt.datetime(year=2024, month=12, day=1),
+                stop = dt.datetime(year=2024, month=12, day=31)
+            )
+        else:
+            self.__timestamp = radar.random_datetime(
+                start = dt.datetime(year=2024, month=1, day=1),
+                stop = dt.datetime(year=2024, month=11, day=30)
+            )
+        rng = rand.random()
+        if rng >= 0.00 and rng <= 0.10:
+            self.__ecommercename = Order.ecommerce_websites[0]
+        elif rng > 0.10 and rng <= 0.30:
+            self.__ecommercename = Order.ecommerce_websites[1]
+        else: self.__ecommercename = Order.ecommerce_websites[rand.randint(2,19)]
 
     @property
     def orderid(self):
