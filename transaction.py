@@ -25,7 +25,7 @@ class Transaction:
         self.__paymentTxnSuccess = self.genTxnSuccess()
         self.__failureReason = self.genFailureReason()
 
-        print("Transaction created.")
+        # print("Transaction created.")
 
 
     def genTxnId(self):
