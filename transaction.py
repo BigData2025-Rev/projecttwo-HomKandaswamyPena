@@ -20,10 +20,10 @@ class Transaction:
         # self.__cardTrend = 0.4
         # self.__txnSuccessRate = 0.95
 
-        self.__paymentTxnId = self.genTxnId(self)
-        self.__paymentType = self.genTxnType(self)
-        self.__paymentTxnSuccess = self.genTxnSuccess(self)
-        self.__failureReason = self.genFailureReason(self)
+        self.__paymentTxnId = self.genTxnId()
+        self.__paymentType = self.genTxnType()
+        self.__paymentTxnSuccess = self.genTxnSuccess()
+        self.__failureReason = self.genFailureReason()
 
         print("Transaction created.")
 
@@ -39,7 +39,7 @@ class Transaction:
         while rng in Transaction.txn_id_list:
             rng = random.randint(10000000,99999999)
 
-        Transaction.append(rng)
+        Transaction.txn_id_list.append(rng)
 
         return rng
     
