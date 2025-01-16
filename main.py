@@ -4,6 +4,7 @@ from pyspark.sql.types import StructType, StructField, StringType, IntegerType, 
 from product import Product
 from transaction import Transaction
 from order import Order
+from customer import Customer
 
 class OrderGenerator:
     def get_row():
@@ -29,9 +30,10 @@ class OrderGenerator:
         product = Product()
         transaction = Transaction()
         order = Order()
+        customer = Customer()
         df = spark_session.createDataFrame([(order.orderid, 
-                                             1, 
-                                             "example", 
+                                             customer.id, 
+                                             customer.name, 
                                              product.id, 
                                              product.name, 
                                              product.category,
@@ -39,8 +41,8 @@ class OrderGenerator:
                                              order.qty, 
                                              product.price, 
                                              order.timestamp,
-                                             "country",
-                                             "city",
+                                             customer.country,
+                                             customer.city,
                                              order.ecommercename,
                                              transaction.paymentTxnId,
                                              transaction.paymentTxnSuccess,
