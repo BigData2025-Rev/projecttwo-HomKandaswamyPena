@@ -1,13 +1,11 @@
-import requests
-from bs4 import BeautifulSoup
 import json
 from spark_singleton import SparkSingleton
 from abc import ABC, abstractmethod
 
-URL = "https://www.walgreens.com/"
+PRODUCTS_FILE = "products.json"
 
 """
-    This class will generate a product object with random properties.
+    This class will generate a product object with random properties based on a loaded json file.
     Intended for use in generator.py, where a row will be generated.
 """
 
@@ -36,9 +34,15 @@ class Product(IProduct):
 def get_bottom_tier_elements(element):
     bottom_tier_elements = []
     for li in element.find_all('li', recursive=False):
+        print(li.contents)
+        tst = input("Press Enter to continue...")
         if li.find('ul') is None:  # No child ul means it's a bottom-tier element
-            bottom_tier_elements.append(li)
+            cat_link = li.find('a')
+            if cat_link is None:
+                continue
+            bottom_tier_elements.append(cat_link.text)
         else:
+            print("Recursing...")
             bottom_tier_elements.extend(get_bottom_tier_elements(li.find('ul')))
     return bottom_tier_elements
 
@@ -47,10 +51,18 @@ def get_categories():
     """
         Retrieves categories from an API
     """
-    response = requests.get(URL)
-    soup = BeautifulSoup(response.text, "html.parser")
+    session = HTMLSession()
+    response = session.get(URL)
+    response.html.render()
+
+    soup = BeautifulSoup(response.html.html, "html.parser")
+
     root = soup.find('li', id='menu-shop-products')
-    
+    print(root)
+    session.close()
+    # elements = get_bottom_tier_elements(root.find('ul'))
+    # for element in elements:
+    #     print(element)
     # print(soup.contents)
     # categories = soup.find_all("select", class_="container__list-lvl-2 show-next-lvl")
     # print(categories)
@@ -76,6 +88,7 @@ def get_categories():
 
     # print(category_list)
     # return category_list
+
 def get_products():
     """
         Retrieves products from an API
