@@ -104,7 +104,10 @@ class OrderGenerator:
         return df
 
 def main():
-    row = OrderGenerator.get_row()
+    rng = rand.random()
+    if rng >= 0.0 and rng <= 0.03:
+        row = OrderGenerator.get_rogue_row
+    else: row = OrderGenerator.get_row()
 
 
 
