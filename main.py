@@ -29,7 +29,24 @@ class OrderGenerator:
         product = Product()
         transaction = Transaction()
         order = Order()
-        df = spark_session.createDataFrame([(order.orderid, 1, "example", product.get_id(), self._category)], schema=schema)
+        df = spark_session.createDataFrame([(order.orderid, 
+                                             1, 
+                                             "example", 
+                                             product.id, 
+                                             product.name, 
+                                             product.category,
+                                             transaction.paymentType, 
+                                             order.qty, 
+                                             product.price, 
+                                             order.timestamp,
+                                             "country",
+                                             "city",
+                                             order.ecommercename,
+                                             transaction.paymentTxnId,
+                                             transaction.paymentTxnSuccess,
+                                             transaction.failureReason)], 
+                                             schema=schema)
+        
         return df
 
 def main():
