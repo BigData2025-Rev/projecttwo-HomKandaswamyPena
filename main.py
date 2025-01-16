@@ -78,7 +78,7 @@ class OrderGenerator:
         transaction = Transaction()
         order = Order()
         customer = Customer()
-        rogue_row = (order.orderid, 
+        rogue_row = [order.orderid, 
                      customer.id, 
                      customer.name, 
                      product.id, 
@@ -93,11 +93,11 @@ class OrderGenerator:
                      order.ecommercename,
                      transaction.paymentTxnId,
                      transaction.paymentTxnSuccess,
-                     transaction.failureReason)
+                     transaction.failureReason]
         rogue_row[2] = OrderGenerator.rogue_options[rand.randint(0,3)]
         rogue_row[5] = OrderGenerator.rogue_options[rand.randint(0,3)]
         rogue_row[10] = OrderGenerator.rogue_options[rand.randint(0,3)]
-        rogue_row[19] = OrderGenerator.rogue_options[rand.randint(0,3)]
+        rogue_row[15] = OrderGenerator.rogue_options[rand.randint(0,3)]
         df = spark_session.createDataFrame([rogue_row], 
                                              schema=schema)
         
