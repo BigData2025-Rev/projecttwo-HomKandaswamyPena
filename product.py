@@ -1,5 +1,7 @@
 import json
+import numpy as np
 from spark_singleton import SparkSingleton
+from pyspark.sql.types import StructType, StructField, StringType, IntegerType, FloatType
 from abc import ABC, abstractmethod
 
 PRODUCTS_FILE = "products.json"
@@ -16,113 +18,52 @@ class IProduct(ABC):
             Returns a Spark DataFrame with product information.
         """
         pass
-
+    @staticmethod
+    def get_normalized_rnd_integer(n):
+        mean = n / 2
+        std_dev = n / 4
+        dim_size = 1
+        random_integer = np.clip(np.round(np.random.normal(mean, std_dev, dim_size).astype(int)), 0, n - 1)
+        return random_integer[0]
+    
+    @staticmethod
+    def load_products():
+        with open(PRODUCTS_FILE, "r") as file:
+            products = json.load(file)
+        return products
+    
 class Product(IProduct):
+    products = IProduct.load_products()
+
     def __init__(self):
-        print("Product created")
+        rnd_index = Product.get_normalized_rnd_integer(len(Product.products))
+        self._name = Product.products[rnd_index].get("name")
+        self._price = Product.products[rnd_index].get("price")
+        self._category = Product.products[rnd_index].get("category")
+        self._id = Product.products[rnd_index].get("id")
         
     def get_dataframe(self):
         spark_session = SparkSingleton.getInstance()
-        df = spark_session.createDataFrame([{
-            "id": 1,
-            "name": "Product 1",
-            "price": 10.0,
-            "category": "TestCategory"
-        }])
+        schema = StructType([
+            StructField("id", IntegerType(), False),
+            StructField("name", StringType(), False),
+            StructField("price", FloatType(), False),
+            StructField("category", StringType(), False)
+        ])
+
+        df = spark_session.createDataFrame([(self._id, self._name, self._price, self._category)], schema=schema)
         return df
 
-def get_bottom_tier_elements(element):
-    bottom_tier_elements = []
-    for li in element.find_all('li', recursive=False):
-        print(li.contents)
-        tst = input("Press Enter to continue...")
-        if li.find('ul') is None:  # No child ul means it's a bottom-tier element
-            cat_link = li.find('a')
-            if cat_link is None:
-                continue
-            bottom_tier_elements.append(cat_link.text)
-        else:
-            print("Recursing...")
-            bottom_tier_elements.extend(get_bottom_tier_elements(li.find('ul')))
-    return bottom_tier_elements
-
-
-def get_categories():
+def test_product_creation():
     """
-        Retrieves categories from an API
+        Test function to check if the product object is created correctly.
+        Make sure it is run from the root directory. 
+        It should print a dataframe with a single row, containing product information from a randomly selected product.
     """
-    session = HTMLSession()
-    response = session.get(URL)
-    response.html.render()
-
-    soup = BeautifulSoup(response.html.html, "html.parser")
-
-    root = soup.find('li', id='menu-shop-products')
-    print(root)
-    session.close()
-    # elements = get_bottom_tier_elements(root.find('ul'))
-    # for element in elements:
-    #     print(element)
-    # print(soup.contents)
-    # categories = soup.find_all("select", class_="container__list-lvl-2 show-next-lvl")
-    # print(categories)
-    # for element in main_categories:
-    #     print(str(element))
-    #     val = input("Press Enter to continue...")
-    #     if val == '0':
-    #         break
-
-    # for element in sub_categories:
-    #     print(str(element))
-    #     val = input("Press Enter to continue...")
-    #     if val == '0':
-    #         break
-        
-        
-    # category_list = []
-    # for category in categories:
-    #     h3 = category.find("h3")
-    #     if h3 is None:
-    #         continue
-    #     category_list.append(h3.text)
-
-    # print(category_list)
-    # return category_list
-
-def get_products():
-    """
-        Retrieves products from an API
-    """
-    response = requests.get(URL)
-    soup = BeautifulSoup(response.text, "html.parser")
-    products = soup.find_all("div", class_="product")
-    print(products)
-    product_list = []
-    for product in products:
-        h3 = product.find("h3")
-        span = product.find("span", class_="price")
-        if h3 is None or span is None:
-            continue
-        product_dict = {
-            "name": h3.text,
-            "price": span.text
-        }
-        product_list.append(product_dict)
-
-    print(product_list)
-    # return product_list
-
-def main():
-    """
-        Only executed once to retrieve products from an API
-    """
-    get_categories()
-    # get_products()
-    # products = get_products()
-    # print(json.dumps(products, indent=2))
-    # tst = Product()
-    # test_df = tst.get_dataframe()
-    # test_df.show()
+    for i in range(10):
+        product = Product()
+        df = product.get_dataframe()
+        df.show()
 
 if __name__ == "__main__":
-    main()
+    test_product_creation()
