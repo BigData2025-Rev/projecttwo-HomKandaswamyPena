@@ -1,4 +1,5 @@
 import json
+import random
 from abc import ABC
 import numpy as np
 
@@ -21,12 +22,17 @@ class RandomJSONSelector(ABC):
         return random_integer[0]
     
     @staticmethod
-    def load_products(filename):
+    def load_list(filename):
         """
             Loads the products from the json file.
+            It now shuffles the list before returning it.
+            Args:
+                filename (str): The name of the json file.
             Returns:
-                list: A list of products.
+                list: A list of json objects as dict.
         """
         with open(filename, "r") as file:
-            products = json.load(file)
-        return products
+            json_list = json.load(file)
+        
+        random.shuffle(json_list)
+        return json_list

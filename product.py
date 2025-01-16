@@ -8,7 +8,7 @@ PRODUCTS_FILE = "products.json"
 """
     
 class Product(RandomJSONSelector):
-    products = RandomJSONSelector.load_products(PRODUCTS_FILE)
+    products = RandomJSONSelector.load_list(PRODUCTS_FILE)
 
     def __init__(self):
         """
