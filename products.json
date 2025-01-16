@@ -1,20 +1,603 @@
 [
     {
         "id": 1,
-        "name": "Product 1",
-        "category": "Category 1",
-        "price": 100.00
+        "name": "Redness Eye Drops",
+        "category": "Eye Care",
+        "price": 6.30
     },
     {
         "id": 2,
-        "name": "Product 2",
-        "category": "Category 2",
-        "price": 200.00
+        "name": "Lubricating Eye Drops",
+        "category": "Eye Care",
+        "price": 9.99
     },
     {
         "id": 3,
-        "name": "Product 3",
-        "category": "Category 3",
-        "price": 300.00
+        "name": "Eye Itch Relief Pills",
+        "category": "Eye Care",
+        "price": 24.99
+    },
+    {
+        "id": 4,
+        "name": "Allergy Relief Eye Drops",
+        "category": "Eye Care",
+        "price": 7.99
+    },
+    {
+        "id": 5,
+        "name": "Eye Patch",
+        "category": "Eye Care",
+        "price": 6.99
+    },
+    {
+        "id": 6,
+        "name": "Eye Wash",
+        "category": "Eye Care",
+        "price": 5.49
+    },
+    {
+        "id": 7,
+        "name": "Lens Wipes",
+        "category": "Eye Care",
+        "price": 11.99
+    },
+    {
+        "id": 8,
+        "name": "Lens Cleaner",
+        "category": "Eye Care",
+        "price": 4.99
+    },
+    {
+        "id": 9,
+        "name": "Contact Lens Disinfecting Solution",
+        "category": "Eye Care",
+        "price": 22.99
+    },
+    {
+        "id": 10,
+        "name": "Contact Lens Case",
+        "category": "Eye Care",
+        "price": 16.00
+    },
+    {
+        "id": 11,
+        "name": "Toothpaste",
+        "category": "Oral Care",
+        "price": 2.99
+        },
+        {
+        "id": 12,
+        "name": "Toothbrush",
+        "category": "Oral Care",
+        "price": 1.99
+        },
+        {
+        "id": 13,
+        "name": "Mouthwash",
+        "category": "Oral Care",
+        "price": 3.49
+        },
+        {
+        "id": 14,
+        "name": "Dental Floss",
+        "category": "Oral Care",
+        "price": 2.79
+        },
+        {
+        "id": 15,
+        "name": "Denture Cleaner",
+        "category": "Oral Care",
+        "price": 4.99
+        },
+        {
+        "id": 16,
+        "name": "Teeth Whitening Strips",
+        "category": "Oral Care",
+        "price": 19.99
+        },
+        {
+        "id": 17,
+        "name": "Dental Picks",
+        "category": "Oral Care",
+        "price": 3.99
+        },
+        {
+        "id": 18,
+        "name": "Tongue Cleaner",
+        "category": "Oral Care",
+        "price": 2.49
+        },
+        {
+        "id": 19,
+        "name": "Orthodontic Wax",
+        "category": "Oral Care",
+        "price": 1.99
+        },
+        {
+        "id": 20,
+        "name": "Interdental Brushes",
+        "category": "Oral Care",
+        "price": 4.49
+    },
+    {
+        "id": 21,
+        "name": "Shampoo",
+        "category": "Hair Care",
+        "price": 5.99
+    },
+    {
+        "id": 22,
+        "name": "Conditioner",
+        "category": "Hair Care",
+        "price": 6.99
+    },
+    {
+        "id": 23,
+        "name": "Hair Gel",
+        "category": "Hair Care",
+        "price": 4.99
+    },
+    {
+        "id": 24,
+        "name": "Hair Spray",
+        "category": "Hair Care",
+        "price": 7.99
+    },
+    {
+        "id": 25,
+        "name": "Hair Mousse",
+        "category": "Hair Care",
+        "price": 8.99
+    },
+    {
+        "id": 26,
+        "name": "Hair Serum",
+        "category": "Hair Care",
+        "price": 9.99
+    },
+    {
+        "id": 27,
+        "name": "Hair Oil",
+        "category": "Hair Care",
+        "price": 10.99
+    },
+    {
+        "id": 28,
+        "name": "Hair Mask",
+        "category": "Hair Care",
+        "price": 12.99
+    },
+    {
+        "id": 29,
+        "name": "Dry Shampoo",
+        "category": "Hair Care",
+        "price": 6.49
+    },
+    {
+        "id": 30,
+        "name": "Leave-in Conditioner",
+        "category": "Hair Care",
+        "price": 7.49
+    },
+    {
+        "id": 31,
+        "name": "Foot Cream",
+        "category": "Foot Care",
+        "price": 8.99
+    },
+    {
+        "id": 32,
+        "name": "Foot Powder",
+        "category": "Foot Care",
+        "price": 5.99
+    },
+    {
+        "id": 33,
+        "name": "Foot Spray",
+        "category": "Foot Care",
+        "price": 7.49
+    },
+    {
+        "id": 34,
+        "name": "Foot Scrub",
+        "category": "Foot Care",
+        "price": 6.99
+    },
+    {
+        "id": 35,
+        "name": "Foot Soak",
+        "category": "Foot Care",
+        "price": 4.99
+    },
+    {
+        "id": 36,
+        "name": "Foot File",
+        "category": "Foot Care",
+        "price": 3.99
+    },
+    {
+        "id": 37,
+        "name": "Foot Balm",
+        "category": "Foot Care",
+        "price": 9.99
+    },
+    {
+        "id": 38,
+        "name": "Foot Lotion",
+        "category": "Foot Care",
+        "price": 7.99
+    },
+    {
+        "id": 39,
+        "name": "Foot Deodorant",
+        "category": "Foot Care",
+        "price": 6.49
+    },
+    {
+        "id": 40,
+        "name": "Foot Massager",
+        "category": "Foot Care",
+        "price": 19.99
+    },
+    {
+        "id": 41,
+        "name": "Shaving Cream",
+        "category": "Shaving and Grooming",
+        "price": 3.99
+    },
+    {
+        "id": 42,
+        "name": "Razor",
+        "category": "Shaving and Grooming",
+        "price": 5.99
+    },
+    {
+        "id": 43,
+        "name": "Aftershave",
+        "category": "Shaving and Grooming",
+        "price": 4.99
+    },
+    {
+        "id": 44,
+        "name": "Beard Oil",
+        "category": "Shaving and Grooming",
+        "price": 6.99
+    },
+    {
+        "id": 45,
+        "name": "Shaving Brush",
+        "category": "Shaving and Grooming",
+        "price": 7.99
+    },
+    {
+        "id": 46,
+        "name": "Electric Shaver",
+        "category": "Shaving and Grooming",
+        "price": 29.99
+    },
+    {
+        "id": 47,
+        "name": "Beard Trimmer",
+        "category": "Shaving and Grooming",
+        "price": 19.99
+    },
+    {
+        "id": 48,
+        "name": "Shaving Gel",
+        "category": "Shaving and Grooming",
+        "price": 3.49
+    },
+    {
+        "id": 49,
+        "name": "Pre-Shave Oil",
+        "category": "Shaving and Grooming",
+        "price": 8.99
+    },
+    {
+        "id": 50,
+        "name": "Mustache Wax",
+        "category": "Shaving and Grooming",
+        "price": 5.49
+    },
+    {
+        "id": 51,
+        "name": "Hearing Aid",
+        "category": "Hearing Devices and Amplifiers",
+        "price": 510.00
+    },
+    {
+        "id": 52,
+        "name": "Hearing Amplifier",
+        "category": "Hearing Devices and Amplifiers",
+        "price": 520.00
+    },
+    {
+        "id": 53,
+        "name": "Hearing Aid Batteries",
+        "category": "Hearing Devices and Amplifiers",
+        "price": 530.00
+    },
+    {
+        "id": 54,
+        "name": "Hearing Aid Cleaning Kit",
+        "category": "Hearing Devices and Amplifiers",
+        "price": 540.00
+    },
+    {
+        "id": 55,
+        "name": "Hearing Aid Domes",
+        "category": "Hearing Devices and Amplifiers",
+        "price": 550.00
+    },
+    {
+        "id": 56,
+        "name": "Hearing Aid Drying Box",
+        "category": "Hearing Devices and Amplifiers",
+        "price": 560.00
+    },
+    {
+        "id": 57,
+        "name": "Hearing Aid Wax Guards",
+        "category": "Hearing Devices and Amplifiers",
+        "price": 570.00
+    },
+    {
+        "id": 58,
+        "name": "Hearing Aid Tubing",
+        "category": "Hearing Devices and Amplifiers",
+        "price": 580.00
+    },
+    {
+        "id": 59,
+        "name": "Hearing Aid Clips",
+        "category": "Hearing Devices and Amplifiers",
+        "price": 590.00
+    },
+    {
+        "id": 60,
+        "name": "Hearing Aid Dehumidifier",
+        "category": "Hearing Devices and Amplifiers",
+        "price": 600.00
+    },
+    {
+        "id": 61,
+        "name": "Sunscreen Lotion",
+        "category": "Sun Care",
+        "price": 15.99
+    },
+    {
+        "id": 62,
+        "name": "After Sun Gel",
+        "category": "Sun Care",
+        "price": 12.99
+    },
+    {
+        "id": 63,
+        "name": "Sunburn Relief Spray",
+        "category": "Sun Care",
+        "price": 9.99
+    },
+    {
+        "id": 64,
+        "name": "Sunscreen Spray",
+        "category": "Sun Care",
+        "price": 14.99
+    },
+    {
+        "id": 65,
+        "name": "Lip Balm with SPF",
+        "category": "Sun Care",
+        "price": 4.99
+    },
+    {
+        "id": 66,
+        "name": "Adult Diapers",
+        "category": "Incontinence",
+        "price": 12.99
+    },
+    {
+        "id": 67,
+        "name": "Incontinence Pads",
+        "category": "Incontinence",
+        "price": 8.99
+    },
+    {
+        "id": 68,
+        "name": "Bed Protection Underpads",
+        "category": "Incontinence",
+        "price": 15.99
+    },
+    {
+        "id": 69,
+        "name": "Incontinence Liners",
+        "category": "Incontinence",
+        "price": 7.99
+    },
+    {
+        "id": 70,
+        "name": "Incontinence Wipes",
+        "category": "Incontinence",
+        "price": 5.99
+    },
+    {
+        "id": 71,
+        "name": "Sanitary Pads",
+        "category": "Feminine Care",
+        "price": 5.99
+    },
+    {
+        "id": 72,
+        "name": "Tampons",
+        "category": "Feminine Care",
+        "price": 6.99
+    },
+    {
+        "id": 73,
+        "name": "Panty Liners",
+        "category": "Feminine Care",
+        "price": 4.99
+    },
+    {
+        "id": 74,
+        "name": "Menstrual Cup",
+        "category": "Feminine Care",
+        "price": 19.99
+    },
+    {
+        "id": 75,
+        "name": "Feminine Wipes",
+        "category": "Feminine Care",
+        "price": 3.99
+    },
+    {
+        "id": 76,
+        "name": "Body Wash",
+        "category": "Bath and Body",
+        "price": 5.99
+    },
+    {
+        "id": 77,
+        "name": "Body Lotion",
+        "category": "Bath and Body",
+        "price": 6.99
+    },
+    {
+        "id": 78,
+        "name": "Body Scrub",
+        "category": "Bath and Body",
+        "price": 7.99
+    },
+    {
+        "id": 79,
+        "name": "Body Butter",
+        "category": "Bath and Body",
+        "price": 8.99
+    },
+    {
+        "id": 80,
+        "name": "Shower Gel",
+        "category": "Bath and Body",
+        "price": 4.99
+    },
+    {
+        "id": 81,
+        "name": "Ear Drops",
+        "category": "Ear, Nose, and Throat Care",
+        "price": 8.99
+    },
+    {
+        "id": 82,
+        "name": "Nasal Spray",
+        "category": "Ear, Nose, and Throat Care",
+        "price": 7.99
+    },
+    {
+        "id": 83,
+        "name": "Throat Lozenges",
+        "category": "Ear, Nose, and Throat Care",
+        "price": 5.99
+    },
+    {
+        "id": 84,
+        "name": "Ear Wax Removal Kit",
+        "category": "Ear, Nose, and Throat Care",
+        "price": 12.99
+    },
+    {
+        "id": 85,
+        "name": "Sinus Rinse",
+        "category": "Ear, Nose, and Throat Care",
+        "price": 9.99
+    },
+    {
+        "id": 86,
+        "name": "Cough Syrup",
+        "category": "Cough, Cold, and Flu",
+        "price": 8.99
+    },
+    {
+        "id": 87,
+        "name": "Cold Medicine",
+        "category": "Cough, Cold, and Flu",
+        "price": 7.99
+    },
+    {
+        "id": 88,
+        "name": "Flu Relief Tablets",
+        "category": "Cough, Cold, and Flu",
+        "price": 9.99
+    },
+    {
+        "id": 89,
+        "name": "Cough Drops",
+        "category": "Cough, Cold, and Flu",
+        "price": 3.99
+    },
+    {
+        "id": 90,
+        "name": "Nasal Decongestant",
+        "category": "Cough, Cold, and Flu",
+        "price": 6.99
+    },
+    {
+        "id": 91,
+        "name": "Chest Rub",
+        "category": "Cough, Cold, and Flu",
+        "price": 5.99
+    },
+    {
+        "id": 92,
+        "name": "Throat Spray",
+        "category": "Cough, Cold, and Flu",
+        "price": 4.99
+    },
+    {
+        "id": 93,
+        "name": "Cough Suppressant",
+        "category": "Cough, Cold, and Flu",
+        "price": 7.49
+    },
+    {
+        "id": 94,
+        "name": "Cold and Flu Tea",
+        "category": "Cough, Cold, and Flu",
+        "price": 5.49
+    },
+    {
+        "id": 95,
+        "name": "Vapor Inhaler",
+        "category": "Cough, Cold, and Flu",
+        "price": 4.49
+    },
+    {
+        "id": 96,
+        "name": "Pain Relief Cream",
+        "category": "Pain Relief and Management",
+        "price": 12.99
+    },
+    {
+        "id": 97,
+        "name": "Pain Relief Patch",
+        "category": "Pain Relief and Management",
+        "price": 14.99
+    },
+    {
+        "id": 98,
+        "name": "Pain Relief Spray",
+        "category": "Pain Relief and Management",
+        "price": 9.99
+    },
+    {
+        "id": 99,
+        "name": "Pain Relief Gel",
+        "category": "Pain Relief and Management",
+        "price": 11.99
+    },
+    {
+        "id": 100,
+        "name": "Pain Relief Tablets",
+        "category": "Pain Relief and Management",
+        "price": 8.99
     }
+    
 ]
