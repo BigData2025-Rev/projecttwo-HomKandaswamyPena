@@ -1,7 +1,4 @@
-import json
-import numpy as np
-
-from abc import ABC, abstractmethod
+from random_json_selector import RandomJSONSelector
 
 PRODUCTS_FILE = "products.json"
 
@@ -9,38 +6,9 @@ PRODUCTS_FILE = "products.json"
     This class will generate a product object with random properties based on a loaded json file.
     Intended for use in generator.py, where a row will be generated.
 """
-
-class IProduct(ABC):
-
-    @staticmethod
-    def get_normalized_rnd_integer(n):
-        """
-            Returns a random integer based on a normal distribution.
-            The integer is clipped to the range of [0, n - 1].
-            Args:
-                n (int): The upper bound of the range.
-            Returns:
-                int: A random integer in the range of [0, n - 1].
-        """
-        mean = n / 2
-        std_dev = n / 4
-        dim_size = 1
-        random_integer = np.clip(np.round(np.random.normal(mean, std_dev, dim_size)).astype(int), 0, n - 1)
-        return random_integer[0]
     
-    @staticmethod
-    def load_products():
-        """
-            Loads the products from the json file.
-            Returns:
-                list: A list of products.
-        """
-        with open(PRODUCTS_FILE, "r") as file:
-            products = json.load(file)
-        return products
-    
-class Product(IProduct):
-    products = IProduct.load_products()
+class Product(RandomJSONSelector):
+    products = RandomJSONSelector.load_products(PRODUCTS_FILE)
 
     def __init__(self):
         """
