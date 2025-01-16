@@ -1,2 +1,0 @@
-order_id,customer_id,customer_name,product_id,product_name,product_category,payment_type,qty,price,datetime,country,city,ecommerce_website_name,payment_txn_id,payment_txn_success,failure_reason
-8,1,John Doe,137,Thumb Brace,Supports and Braces,internet banking,3,8.99,2024-06-28T06:30:12.000-07:00,United States of America,New York,www.britishpharmacy.co.uk,96076257,1,payment successful

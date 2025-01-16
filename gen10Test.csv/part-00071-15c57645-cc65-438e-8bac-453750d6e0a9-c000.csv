@@ -1,2 +1,0 @@
-order_id,customer_id,customer_name,product_id,product_name,product_category,payment_type,qty,price,datetime,country,city,ecommerce_website_name,payment_txn_id,payment_txn_success,failure_reason
-6,32,Aiden Parker,82,Nasal Spray,"Ear, Nose, and Throat Care",wallet,8,7.99,2024-05-25T10:44:42.000-07:00,Canada,Calgary,www.britishpharmacy.co.uk,58246839,1,payment successful

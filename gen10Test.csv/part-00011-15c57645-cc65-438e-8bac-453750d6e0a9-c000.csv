@@ -1,2 +1,0 @@
-order_id,customer_id,customer_name,product_id,product_name,product_category,payment_type,qty,price,datetime,country,city,ecommerce_website_name,payment_txn_id,payment_txn_success,failure_reason
-1,12,Ethan Clark,23,Hair Gel,Hair Care,card,3,4.99,2024-07-02T11:14:20.000-07:00,Canada,Vancouver,www.cvs.com,77269393,1,payment successful
