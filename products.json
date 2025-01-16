@@ -599,5 +599,305 @@
         "category": "Pain Relief and Management",
         "price": 8.99
     }
-    
+    ,
+    {
+        "id": 101,
+        "name": "Adhesive Bandages",
+        "category": "First Aid",
+        "price": 3.99
+    },
+    {
+        "id": 102,
+        "name": "Antiseptic Wipes",
+        "category": "First Aid",
+        "price": 2.99
+    },
+    {
+        "id": 103,
+        "name": "Gauze Pads",
+        "category": "First Aid",
+        "price": 4.99
+    },
+    {
+        "id": 104,
+        "name": "First Aid Tape",
+        "category": "First Aid",
+        "price": 1.99
+    },
+    {
+        "id": 105,
+        "name": "Hydrocortisone Cream",
+        "category": "First Aid",
+        "price": 5.99
+    },
+    {
+        "id": 106,
+        "name": "Antibiotic Ointment",
+        "category": "First Aid",
+        "price": 6.99
+    },
+    {
+        "id": 107,
+        "name": "Burn Gel",
+        "category": "First Aid",
+        "price": 7.99
+    },
+    {
+        "id": 108,
+        "name": "Digestive Enzymes",
+        "category": "Digestive Health and Nausea",
+        "price": 14.99
+    },
+    {
+        "id": 109,
+        "name": "Probiotics",
+        "category": "Digestive Health and Nausea",
+        "price": 19.99
+    },
+    {
+        "id": 110,
+        "name": "Antacid Tablets",
+        "category": "Digestive Health and Nausea",
+        "price": 4.99
+    },
+    {
+        "id": 111,
+        "name": "Laxatives",
+        "category": "Digestive Health and Nausea",
+        "price": 6.99
+    },
+    {
+        "id": 112,
+        "name": "Anti-Nausea Liquid",
+        "category": "Digestive Health and Nausea",
+        "price": 8.99
+    },
+    {
+        "id": 113,
+        "name": "Stool Softener",
+        "category": "Digestive Health and Nausea",
+        "price": 5.99
+    },
+    {
+        "id": 114,
+        "name": "Pregnancy Test",
+        "category": "Home Tests and Monitoring",
+        "price": 12.99
+    },
+    {
+        "id": 115,
+        "name": "Blood Pressure Monitor",
+        "category": "Home Tests and Monitoring",
+        "price": 29.99
+    },
+    {
+        "id": 116,
+        "name": "Glucose Meter",
+        "category": "Home Tests and Monitoring",
+        "price": 24.99
+    },
+    {
+        "id": 117,
+        "name": "Ovulation Test",
+        "category": "Home Tests and Monitoring",
+        "price": 14.99
+    },
+    {
+        "id": 118,
+        "name": "Cholesterol Test Kit",
+        "category": "Home Tests and Monitoring",
+        "price": 19.99
+    },
+    {
+        "id": 119,
+        "name": "Nicotine Gum",
+        "category": "Stop Smoking",
+        "price": 24.99
+    },
+    {
+        "id": 120,
+        "name": "Nicotine Patches",
+        "category": "Stop Smoking",
+        "price": 29.99
+    },
+    {
+        "id": 121,
+        "name": "Nicotine Lozenges",
+        "category": "Stop Smoking",
+        "price": 19.99
+    },
+    {
+        "id": 122,
+        "name": "Skin Rash Cream",
+        "category": "Skin Ailments",
+        "price": 7.99
+    },
+    {
+        "id": 123,
+        "name": "Eczema Relief Cream",
+        "category": "Skin Ailments",
+        "price": 9.99
+    },
+    {
+        "id": 124,
+        "name": "Psoriasis Treatment",
+        "category": "Skin Ailments",
+        "price": 12.99
+    },
+    {
+        "id": 125,
+        "name": "Acne Treatment Gel",
+        "category": "Skin Ailments",
+        "price": 8.99
+    },
+    {
+        "id": 126,
+        "name": "Diabetes Test Strips",
+        "category": "Diabetes Management",
+        "price": 25.99
+    },
+    {
+        "id": 127,
+        "name": "Insulin Syringes",
+        "category": "Diabetes Management",
+        "price": 19.99
+    },
+    {
+        "id": 128,
+        "name": "Lancets",
+        "category": "Diabetes Management",
+        "price": 14.99
+    },
+    {
+        "id": 129,
+        "name": "Glucose Tablets",
+        "category": "Diabetes Management",
+        "price": 4.99
+    },
+    {
+        "id": 130,
+        "name": "Knee Brace",
+        "category": "Supports and Braces",
+        "price": 15.99
+    },
+    {
+        "id": 131,
+        "name": "Ankle Support",
+        "category": "Supports and Braces",
+        "price": 12.99
+    },
+    {
+        "id": 132,
+        "name": "Wrist Brace",
+        "category": "Supports and Braces",
+        "price": 10.99
+    },
+    {
+        "id": 133,
+        "name": "Elbow Support",
+        "category": "Supports and Braces",
+        "price": 11.99
+    },
+    {
+        "id": 134,
+        "name": "Back Support Belt",
+        "category": "Supports and Braces",
+        "price": 19.99
+    },
+    {
+        "id": 135,
+        "name": "Shoulder Support",
+        "category": "Supports and Braces",
+        "price": 14.99
+    },
+    {
+        "id": 136,
+        "name": "Finger Splint",
+        "category": "Supports and Braces",
+        "price": 6.99
+    },
+    {
+        "id": 137,
+        "name": "Thumb Brace",
+        "category": "Supports and Braces",
+        "price": 8.99
+    },
+    {
+        "id": 138,
+        "name": "Calf Support",
+        "category": "Supports and Braces",
+        "price": 9.99
+    },
+    {
+        "id": 139,
+        "name": "Compression Socks",
+        "category": "Supports and Braces",
+        "price": 12.99
+    },
+    {
+        "id": 140,
+        "name": "Toe Separator",
+        "category": "Supports and Braces",
+        "price": 4.99
+    },
+    {
+        "id": 141,
+        "name": "Heel Cups",
+        "category": "Supports and Braces",
+        "price": 7.99
+    },
+    {
+        "id": 142,
+        "name": "Arch Support",
+        "category": "Supports and Braces",
+        "price": 6.99
+    },
+    {
+        "id": 143,
+        "name": "Plantar Fasciitis Sleeve",
+        "category": "Supports and Braces",
+        "price": 11.99
+    },
+    {
+        "id": 144,
+        "name": "Maternity Support Belt",
+        "category": "Supports and Braces",
+        "price": 19.99
+    },
+    {
+        "id": 145,
+        "name": "Posture Corrector",
+        "category": "Supports and Braces",
+        "price": 14.99
+    },
+    {
+        "id": 146,
+        "name": "Hernia Belt",
+        "category": "Supports and Braces",
+        "price": 24.99
+    },
+    {
+        "id": 147,
+        "name": "Groin Support",
+        "category": "Supports and Braces",
+        "price": 13.99
+    },
+    {
+        "id": 148,
+        "name": "Neck Brace",
+        "category": "Supports and Braces",
+        "price": 16.99
+    },
+    {
+        "id": 149,
+        "name": "Shoulder Immobilizer",
+        "category": "Supports and Braces",
+        "price": 18.99
+    },
+    {
+        "id": 150,
+        "name": "Hip Support",
+        "category": "Supports and Braces",
+        "price": 17.99
+    }
 ]
