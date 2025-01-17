@@ -54,6 +54,7 @@ class Order:
         elif self.__timestamp.month >= 3 and self.__timestamp.month <= 5: return "spring"
         elif self.__timestamp.month >= 6 and self.__timestamp.month <= 8: return "summer"
         elif self.__timestamp.month >= 9 and self.__timestamp.month <= 11: return "fall"
+        return "winter"
 
     @property
     def orderid(self):
