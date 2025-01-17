@@ -1,3 +1,4 @@
+import random
 from random_json_selector import RandomJSONSelector
 
 PRODUCTS_FILE = "products.json"
@@ -14,22 +15,29 @@ class Product(RandomJSONSelector):
         """
             Initializes the product object with random properties
         """
-        self.products = self.get_seasonal_products(season)
-        rnd_index = Product.get_normalized_rnd_integer(len(self.products))
-        self.__name = self.products[rnd_index].get("name")
-        self.__price = self.products[rnd_index].get("price")
-        self.__category = self.products[rnd_index].get("category")
-        self.__id = self.products[rnd_index].get("id")
+        products_use = Product.products
+        self.seasonal_products = self.get_seasonal_products(season)
+        rnd_chance = random.random()
+        if rnd_chance < 0.5:
+            rnd_index = Product.get_normalized_rnd_integer(len(Product.products))
+        else:
+            rnd_index = Product.get_normalized_rnd_integer(len(self.seasonal_products))
+            products_use = self.seasonal_products
+
+        self.__name = products_use[rnd_index].get("name")
+        self.__price = products_use[rnd_index].get("price")
+        self.__category = products_use[rnd_index].get("category")
+        self.__id = products_use[rnd_index].get("id")
     
     def get_seasonal_products(season):
         """
             Returns a list of products that are in the specified season
         """
         seasonal_categories = {
-            'summer':[],
+            'summer':["Sun Care", "Bath and Body", "Hair Care", "Skin Ailments"],
             'winter':["Shaving and Grooming", "Feminine Care", "Cough, Cold, and Flu"],
-            'spring':[],
-            'fall':[]
+            'spring':["Eye Care", "Oral Care", "First Aid", "Vitamins and Supplements"],
+            'fall':["Stop Smoking", "Foot Care", "Pain Relief and Management", "Ear, Nose, and Throat Care"]
         }
         current_season = seasonal_categories.get(season)
         seasonal_products = [product for product in Product.products if product.get("category") in current_season ]
