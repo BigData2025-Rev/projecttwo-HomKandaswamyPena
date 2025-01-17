@@ -29,7 +29,7 @@ class Product(RandomJSONSelector):
         self.__category = products_use[rnd_index].get("category")
         self.__id = products_use[rnd_index].get("id")
     
-    def get_seasonal_products(season):
+    def get_seasonal_products(self, season):
         """
             Returns a list of products that are in the specified season
         """

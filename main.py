@@ -11,9 +11,9 @@ class OrderGenerator:
     rogue_options = ["ROGUEROGUE", "XXXXXXXX", "", "----////----"]
 
     def get_row():
-        product = Product()
-        transaction = Transaction()
         order = Order()
+        product = Product(order.get_current_season())
+        transaction = Transaction()
         customer = Customer()
         row = Row(order.orderid, 
                    customer.id, 
@@ -35,9 +35,9 @@ class OrderGenerator:
         return row
     
     def get_rogue_row():
-        product = Product()
-        transaction = Transaction()
         order = Order()
+        product = Product(order.get_current_season())
+        transaction = Transaction()
         customer = Customer()
         rogue_row = [order.orderid, 
                      customer.id, 
