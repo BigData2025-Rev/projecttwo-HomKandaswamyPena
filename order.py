@@ -50,10 +50,10 @@ class Order:
         else: self.__ecommercename = Order.ecommerce_websites[rand.randint(2,19)]
 
     def get_current_season(self):
-        if self.__timestamp.month ==1 or self.__timestamp.month == 2 or self.__timestamp.month == 12: return "winter"
-        elif self.__timestamp.month >=3 and self.__timestamp.month <=5: return "spring"
-        elif self.__timestamp.month >=6 and self.__timestamp.month <=8: return "summer"
-        elif self.__timestamp.month >=9 and self.__timestamp.month <=11: return "fall"
+        if self.__timestamp.month == 1 or self.__timestamp.month == 2 or self.__timestamp.month == 12: return "winter"
+        elif self.__timestamp.month >= 3 and self.__timestamp.month <= 5: return "spring"
+        elif self.__timestamp.month >= 6 and self.__timestamp.month <= 8: return "summer"
+        elif self.__timestamp.month >= 9 and self.__timestamp.month <= 11: return "fall"
 
     @property
     def orderid(self):
