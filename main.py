@@ -81,6 +81,7 @@ def get_schema():
             StructField("payment_txn_success", StringType(), True),
             StructField("failure_reason", StringType(), True)
         ])
+    return schema
 
 def main():
     numRows = int(input("Enter number of records to generate: "))
@@ -103,7 +104,6 @@ def main():
 
     df = spark_session.createDataFrame(row_list, get_schema())
     # df.show()
-
     df.repartition(1).write.csv(f'{name}.csv', header=True, mode='overwrite')
 
 
