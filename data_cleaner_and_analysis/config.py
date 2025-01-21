@@ -1,0 +1,1 @@
+SPARK_APP_NAME = "eCommerce Data Cleaner and Analyzer"
