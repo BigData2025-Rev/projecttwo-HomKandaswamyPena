@@ -1,11 +1,7 @@
 from pyspark.sql import DataFrame
-from abc import ABC, abstractmethod
+from abc import ABC
 
 class BaseAnalysis(ABC):
-    
-    @abstractmethod
-    def get_results(self):
-        pass
     
     def save_results(self, file_path):
         data: DataFrame = self.data
