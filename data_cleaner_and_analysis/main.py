@@ -24,15 +24,15 @@ def main():
     cleaned_data = DataCleaner(data_df) \
                     .remove_corrupted_rows() \
                     .drop_id_columns() \
+                    .split_datetime() \
                     .remove_failed_transactions() \
                     .data
     
-    product_popularity: DataFrame = ProductPopularity(cleaned_data) \
-                                    .truncate_irrelevant_columns() \
-                                    .get_results()
-    product_popularity_by_country: DataFrame = ProductPopularity(cleaned_data) \
-                                    .truncate_irrelevant_columns() \
-                                    .get_results_by_country()
+    truncated_data: DataFrame = ProductPopularity(cleaned_data) \
+                                    .truncate_irrelevant_columns()
+    
+    product_popularity: DataFrame = truncated_data.get_results()
+    product_popularity_by_country: DataFrame = truncated_data.get_results_by_country()
     
     product_popularity.show(5, truncate=False)
     product_popularity_by_country.show(5, truncate=False)   
