@@ -38,4 +38,4 @@ class ProductPopularity():
     
     def save_results(self, file_path):
         data: DataFrame = self.__data
-        data.write.mode('overwrite').csv(file_path, header=True)
+        data.write.mode('overwrite').csv(file_path, header=True, mode='overwrite')

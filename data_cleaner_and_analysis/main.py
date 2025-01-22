@@ -6,6 +6,7 @@ from popularity_of_products import ProductPopularity
 from top_item_category import TopCategory
 from popular_locations import PopularLocations
 from popular_times import PopularTimes
+from payment import Payment
 
 """
     cd into the directory containing this file and run the following command:
@@ -60,6 +61,11 @@ def main():
 
     popular_times_country: DataFrame = PopularTimes(cleaned_data).get_popular_times_countries()
     popular_times_country.show()
+
+    payments : DataFrame = Payment(cleaned_data).get_results()
+    payments.show()
+    payments_success: DataFrame = Payment(data_df).get_successful_transactions()
+    payments_success.show()
 
 if __name__ == "__main__":
     main()
