@@ -1,4 +1,4 @@
-from pyspark.sql import functions
+from pyspark.sql import functions as F
 
 class PopularTimes:
 
@@ -6,14 +6,17 @@ class PopularTimes:
         self.__data = data
 
     def popular_times_overall(self):
-        times_df = self.__data.withColumn('hour', hour(self.__data.datetime))
-        times_df = times_df.withColumn('period',
-                                 when((col('hour') >= 6) & (col('hour') < 12), "morning")
-                                .when((col('hour') >= 12) & (col('hour') < 18), "afternoon")
-                                .when((col('hour') >= 18) & (col('hour') < 24), "evening")
+        times_df = self.__data.withColumn('period',
+                                F.when((F.col('hour') >= 6) & (F.col('hour') < 12), "morning")
+                                .F.when((F.col('hour') >= 12) & (F.col('hour') < 18), "afternoon")
+                                .F.when((F.col('hour') >= 18) & (F.col('hour') < 24), "evening")
                                 .otherwise('off-hours'))
-        times_df = times_df.groupBy('period').count().orderBy('count', ascending=False)
-        return times_df
+        return times_df.groupBy('period').count().orderBy('count', ascending=False)
 
     def popular_times_countries(self):
-        print('placeholder')
+        times_df = self.__data.withColumn('period',
+                                F.when((F.col('hour') >= 6) & (F.col('hour') < 12), "morning")
+                                .F.when((F.col('hour') >= 12) & (F.col('hour') < 18), "afternoon")
+                                .F.when((F.col('hour') >= 18) & (F.col('hour') < 24), "evening")
+                                .otherwise('off-hours'))
+        return times_df.groupBy('country', 'period').count().orderBy('count', ascending=False)
