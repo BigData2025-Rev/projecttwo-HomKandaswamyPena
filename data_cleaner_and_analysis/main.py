@@ -4,6 +4,8 @@ from data_loader import DataLoader
 from cleaner import DataCleaner
 from popularity_of_products import ProductPopularity
 from top_item_category import TopCategory
+from popular_locations import PopularLocations
+from popular_times import PopularTimes
 
 """
     cd into the directory containing this file and run the following command:
@@ -42,6 +44,18 @@ def main():
 
     top_category_country: DataFrame = TopCategory(cleaned_data).get_results_by_country()
     top_category_country.show(top_category_country.count())
+
+    popular_countries: DataFrame = PopularLocations(cleaned_data).get_popular_countries()
+    popular_countries.show()
+
+    popular_cities: DataFrame = PopularLocations(cleaned_data).get_popular_cities()
+    popular_cities.show()
+
+    popular_times_overall: DataFrame = PopularTimes(cleaned_data).get_popular_times_overall()
+    popular_times_overall.show()
+
+    popular_times_country: DataFrame = PopularTimes(cleaned_data).get_popular_times_countries()
+    popular_times_overall.show()
 
 if __name__ == "__main__":
     main()

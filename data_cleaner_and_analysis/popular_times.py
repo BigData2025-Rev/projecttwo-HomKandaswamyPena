@@ -5,7 +5,7 @@ class PopularTimes:
     def __init__(self, data):
         self.__data = data
 
-    def popular_times_overall(self):
+    def get_popular_times_overall(self):
         times_df = self.__data.withColumn('period',
                                 F.when((F.col('hour') >= 6) & (F.col('hour') < 12), "morning")
                                 .F.when((F.col('hour') >= 12) & (F.col('hour') < 18), "afternoon")
@@ -13,7 +13,7 @@ class PopularTimes:
                                 .otherwise('off-hours'))
         return times_df.groupBy('period').count().orderBy('count', ascending=False)
 
-    def popular_times_countries(self):
+    def get_popular_times_countries(self):
         times_df = self.__data.withColumn('period',
                                 F.when((F.col('hour') >= 6) & (F.col('hour') < 12), "morning")
                                 .F.when((F.col('hour') >= 12) & (F.col('hour') < 18), "afternoon")
