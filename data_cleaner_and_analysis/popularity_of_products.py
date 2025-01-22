@@ -6,6 +6,10 @@ class ProductPopularity(BaseAnalysis):
     
     def __init__(self, data):
         self.__data = data
+
+    @property
+    def data(self):
+        return self.__data
     
     def truncate_irrelevant_columns(self):
         data: DataFrame = self.__data
