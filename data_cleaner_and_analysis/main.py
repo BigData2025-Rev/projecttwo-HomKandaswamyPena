@@ -55,7 +55,7 @@ def main():
     popular_times_overall.show()
 
     popular_times_country: DataFrame = PopularTimes(cleaned_data).get_popular_times_countries()
-    popular_times_overall.show()
+    popular_times_country.show()
 
 if __name__ == "__main__":
     main()
