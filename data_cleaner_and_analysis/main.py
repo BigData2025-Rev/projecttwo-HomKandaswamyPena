@@ -20,6 +20,43 @@ from payment import Payment
     Make sure to cd into this directory before running the script.
 """
 
+def display_pena_results(data):
+    truncated_data: ProductPopularity = ProductPopularity(data) \
+                                    .truncate_irrelevant_columns() \
+                                    .filter_by_popularity()
+    
+    product_popularity: DataFrame = truncated_data.get_results()
+    product_popularity_by_country: DataFrame = truncated_data.get_results_by_country()
+    
+    product_popularity.show(truncate=False)
+    product_popularity_by_country.show(truncate=False)   
+
+def display_kandaswamy_results(data):
+    popular_countries: DataFrame = PopularLocations(data).get_popular_countries()
+    popular_countries.show()
+
+    popular_cities: DataFrame = PopularLocations(data).get_popular_cities()
+    popular_cities.show()
+
+    popular_times_overall: DataFrame = PopularTimes(data).get_popular_times_overall()
+    popular_times_overall.show()
+
+    popular_times_country: DataFrame = PopularTimes(data).get_popular_times_countries()
+    popular_times_country.show()
+
+def display_hom_results(data):
+    top_category: DataFrame = TopCategory(data).get_results()
+    top_category.show()
+
+    top_category_country: DataFrame = TopCategory(data).get_results_by_country()
+    top_category_country.show(top_category_country.count())
+    payments : DataFrame = Payment(data).get_results()
+    payments.show()
+    payments_by_country : DataFrame = Payment(data).get_results_by_country()
+    payments_by_country.show()
+    payments_success: DataFrame = Payment(data).get_successful_transactions()
+    payments_success.show()
+
 def main():
     data_loader = DataLoader()
     data_df: DataFrame = data_loader.data
@@ -33,42 +70,16 @@ def main():
                     .replace_country_names() \
                     .data
     
-    truncated_data: ProductPopularity = ProductPopularity(cleaned_data) \
-                                    .truncate_irrelevant_columns() \
-                                    .filter_by_popularity()
+    display_hom_results(cleaned_data)
+    display_kandaswamy_results(cleaned_data)
+    display_pena_results(cleaned_data)
     
-    product_popularity: DataFrame = truncated_data.get_results()
-    product_popularity_by_country: DataFrame = truncated_data.get_results_by_country()
-    
-    product_popularity.show(truncate=False)
-    product_popularity_by_country.show(truncate=False)   
 
     
 
-    top_category: DataFrame = TopCategory(cleaned_data).get_results()
-    top_category.show()
+   
 
-    top_category_country: DataFrame = TopCategory(cleaned_data).get_results_by_country()
-    top_category_country.show(top_category_country.count())
-
-    popular_countries: DataFrame = PopularLocations(cleaned_data).get_popular_countries()
-    popular_countries.show()
-
-    popular_cities: DataFrame = PopularLocations(cleaned_data).get_popular_cities()
-    popular_cities.show()
-
-    popular_times_overall: DataFrame = PopularTimes(cleaned_data).get_popular_times_overall()
-    popular_times_overall.show()
-
-    popular_times_country: DataFrame = PopularTimes(cleaned_data).get_popular_times_countries()
-    popular_times_country.show()
-
-    payments : DataFrame = Payment(cleaned_data).get_results()
-    payments.show()
-    payments_by_country : DataFrame = Payment(cleaned_data).get_results_by_country()
-    payments_by_country.show()
-    payments_success: DataFrame = Payment(data_df).get_successful_transactions()
-    payments_success.show()
+    
 
 if __name__ == "__main__":
     main()
