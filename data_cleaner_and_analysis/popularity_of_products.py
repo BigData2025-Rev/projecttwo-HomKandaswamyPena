@@ -15,8 +15,8 @@ class ProductPopularity():
     
     def get_results(self):
         data: DataFrame = self.__data
-        return data.groupBy('product_id').count().orderBy('count', ascending=False)
+        return data.groupBy('product_name').sum('qty').withColumnRenamed('sum(qty)', 'popularity').orderBy('popularity', ascending=False)
     
     def get_results_by_country(self):
         data: DataFrame = self.__data
-        return data.groupBy('product_id', 'country').count().orderBy('count', ascending=False)
+        return  data.groupBy('product_name', 'country').sum('qty').withColumnRenamed('sum(qty)', 'popularity').orderBy('popularity', ascending=False)

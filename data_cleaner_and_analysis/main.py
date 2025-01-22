@@ -27,11 +27,15 @@ def main():
                     .remove_failed_transactions() \
                     .data
     
-    product_popularity: DataFrame = ProductPopularity(cleaned_data).get_popularity_over_year()
-    product_popularity.show(product_popularity.count(), truncate=False)
-
-    cleaned_data.show(cleaned_data.count(), truncate=False)
-    print(cleaned_data.count())
+    product_popularity: DataFrame = ProductPopularity(cleaned_data) \
+                                    .truncate_irrelevant_columns() \
+                                    .get_results()
+    product_popularity_by_country: DataFrame = ProductPopularity(cleaned_data) \
+                                    .truncate_irrelevant_columns() \
+                                    .get_results_by_country()
+    
+    product_popularity.show(5, truncate=False)
+    product_popularity_by_country.show(5, truncate=False)   
 
     top_category: DataFrame = TopCategory(cleaned_data).get_results()
     top_category.show()
