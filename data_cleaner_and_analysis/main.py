@@ -27,7 +27,7 @@ def main():
                     .remove_failed_transactions() \
                     .data
     
-    product_popularity: DataFrame = ProductPopularity(cleaned_data).get_results()
+    product_popularity: DataFrame = ProductPopularity(cleaned_data).get_popularity_over_year()
     product_popularity.show(product_popularity.count(), truncate=False)
 
     cleaned_data.show(cleaned_data.count(), truncate=False)
