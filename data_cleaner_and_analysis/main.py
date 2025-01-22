@@ -31,6 +31,10 @@ def display_pena_results(data):
     product_popularity.show(truncate=False)
     product_popularity_by_country.show(truncate=False)   
 
+    ProductPopularity(product_popularity).save_results('product_popularity.csv')
+    ProductPopularity(product_popularity_by_country).save_results('product_popularity_by_country.csv')
+
+
 def display_kandaswamy_results(data):
     popular_countries: DataFrame = PopularLocations(data).get_popular_countries()
     popular_countries.show()

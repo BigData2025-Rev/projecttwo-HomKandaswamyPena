@@ -1,14 +1,11 @@
+from base_analysis import BaseAnalysis
 from pyspark.sql import DataFrame
 from pyspark.sql.functions import year, month, dayofmonth, hour, col, lit, concat
 
-class ProductPopularity():
+class ProductPopularity(BaseAnalysis):
     
     def __init__(self, data):
         self.__data = data
-    
-    @property
-    def data(self):
-        return self.__data
     
     def truncate_irrelevant_columns(self):
         data: DataFrame = self.__data
@@ -36,6 +33,4 @@ class ProductPopularity():
                 .withColumnRenamed('sum(qty)', 'popularity') \
                 .orderBy('popularity', ascending=False)
     
-    def save_results(self, file_path):
-        data: DataFrame = self.__data
-        data.write.mode('overwrite').csv(file_path, header=True, mode='overwrite')
+    
