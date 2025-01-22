@@ -27,17 +27,20 @@ def main():
                     .remove_corrupted_rows() \
                     .drop_id_columns() \
                     .split_datetime() \
+                    .remove_pre2021_data() \
                     .remove_failed_transactions() \
                     .data
     
-    truncated_data: DataFrame = ProductPopularity(cleaned_data) \
+    truncated_data: ProductPopularity = ProductPopularity(cleaned_data) \
                                     .truncate_irrelevant_columns()
     
-    product_popularity: DataFrame = truncated_data.get_results()
-    product_popularity_by_country: DataFrame = truncated_data.get_results_by_country()
+    # product_popularity: DataFrame = truncated_data.get_results().data
+    # product_popularity_by_country: DataFrame = truncated_data.get_results_by_country().data
     
-    product_popularity.show(5, truncate=False)
-    product_popularity_by_country.show(5, truncate=False)   
+    # product_popularity.show(5, truncate=False)
+    # product_popularity_by_country.show(5, truncate=False)   
+
+    truncated_data.get_results().save_results('product_popularity.csv')
 
     top_category: DataFrame = TopCategory(cleaned_data).get_results()
     top_category.show()

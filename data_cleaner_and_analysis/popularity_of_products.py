@@ -1,5 +1,5 @@
 from pyspark.sql import DataFrame
-from pyspark.sql.functions import year, month, dayofmonth, hour
+from pyspark.sql.functions import year, month, dayofmonth, hour, col, lit, concat
 
 class ProductPopularity():
     
@@ -16,11 +16,21 @@ class ProductPopularity():
     
     def get_results(self):
         data: DataFrame = self.__data
-        return data.groupBy('product_name', 'year', 'month') \
+        return ProductPopularity(data.groupBy('product_name', 'year', 'quarter') \
+                    .pivot('year_quarter') \
                     .sum('qty') \
-                    .withColumnRenamed('sum(qty)', 'popularity') \
-                    .orderBy('popularity', ascending=False)
+                    .fillna(0))
+                    # .sum('qty') \
+                    # .withColumnRenamed('sum(qty)', 'popularity') \
+                    # .orderBy('popularity', ascending=False)
     
     def get_results_by_country(self):
         data: DataFrame = self.__data
-        return  data.groupBy('product_name', 'year', 'month', 'country').sum('qty').withColumnRenamed('sum(qty)', 'popularity').orderBy('popularity', ascending=False)
+        return  ProductPopularity(data.groupBy('product_name', 'year_quarter', 'country') \
+                    .sum('qty') \
+                    .withColumnRenamed('sum(qty)', 'popularity') \
+                    .orderBy('popularity', ascending=False))
+    
+    def save_results(self, file_path):
+        data: DataFrame = self.__data
+        data.write.csv(file_path, header=True)
