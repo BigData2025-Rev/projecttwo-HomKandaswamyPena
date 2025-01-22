@@ -30,6 +30,7 @@ def main():
                     .split_datetime() \
                     .remove_pre2021_data() \
                     .remove_failed_transactions() \
+                    .replace_country_names() \
                     .data
     
     truncated_data: ProductPopularity = ProductPopularity(cleaned_data) \

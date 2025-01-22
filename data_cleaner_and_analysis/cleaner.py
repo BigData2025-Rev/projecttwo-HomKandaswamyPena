@@ -28,10 +28,23 @@ class DataCleaner():
                             .withColumn('hour', hour(data['datetime'])) \
                             .withColumn("year_quarter", concat(year(data['datetime']), lit(" Q"), quarter(data['datetime'])))
                             .drop('datetime'))
+    
     def remove_pre2021_data(self):
         data: DataFrame = self.__data
         return DataCleaner(data.filter(data['year'] >= 2021))
     
+    def replace_country_names(self):
+        data: DataFrame = self.__data
+        country_names = {
+            'US': 'United States of America',
+            'UK': 'United Kingdom',
+            'IN': 'India',
+            'JP': 'Japan',
+            'FR': 'France',
+            'DE': 'Germany'
+        }
+        return DataCleaner(data.replace(country_names, subset=['country']))
+
     def display_data(self):
         data: DataFrame = self.__data
         columns = data.columns
