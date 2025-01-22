@@ -11,5 +11,5 @@ class TopCategory():
     
     def get_results_by_country(self):
         data: DataFrame = self.__data
-        return data.groupBy('product_category', 'country').count().orderBy('count', ascending=False)
+        return data.groupBy('product_category', 'country').count().orderBy(['country','count'], ascending=[False, False])
     

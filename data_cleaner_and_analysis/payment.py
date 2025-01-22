@@ -11,7 +11,7 @@ class Payment():
     
     def get_results_by_country(self):
         data: DataFrame = self.__data
-        return data.groupBy('payment_type', 'country').count().orderBy('count', ascending=False)
+        return data.groupBy('payment_type', 'country').count().orderBy(['country','count'], ascending=[False, False])
     
     def get_successful_transactions(self):
         data: DataFrame = self.__data
