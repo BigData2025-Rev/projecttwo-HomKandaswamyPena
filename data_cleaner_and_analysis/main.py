@@ -1,21 +1,26 @@
-from spark_singleton import SparkSingleton
 from pyspark.sql import DataFrame
 
-from config import HDFS_DATA_DIR
+from data_loader import DataLoader
 from cleaner import DataCleaner
 from popularity_of_products import ProductPopularity
 from top_item_category import TopCategory
 
-HDFS_DATA_DIR = "hdfs://localhost:9000/user/ehom/P2datafile.csv"
+"""
+    cd into the directory containing this file and run the following command:
+    python main.py
+    WSL:
+    python3 main.py
 
-def load_data():
-    spark = SparkSingleton.getInstance()
-    data_df: DataFrame = spark.read.csv(HDFS_DATA_DIR, header=True, inferSchema=True)
-    return data_df
+    Likely issue to encounter: load_env() returning None values
+    Solution: Check the .env file and make sure the environment variables are set correctly. See config file for details.
+    Make sure that the .env file is in the same directory as the main.py file.
+    Make sure to cd into this directory before running the script.
+"""
 
 def main():
-    data_df: DataFrame = load_data()
-   
+    data_loader = DataLoader()
+    data_df: DataFrame = data_loader.data
+
     cleaned_data = DataCleaner(data_df) \
                     .remove_corrupted_rows() \
                     .drop_id_columns() \
