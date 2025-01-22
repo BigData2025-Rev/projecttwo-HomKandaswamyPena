@@ -9,6 +9,10 @@ class Payment():
         data: DataFrame = self.__data
         return data.groupBy('payment_type').count().orderBy('count', ascending=False)
     
+    def get_results_by_country(self):
+        data: DataFrame = self.__data
+        return data.groupBy('payment_type', 'country').count().orderBy('count', ascending=False)
+    
     def get_successful_transactions(self):
         data: DataFrame = self.__data
         return data.groupBy('payment_txn_success').count().orderBy('count', ascending=False)

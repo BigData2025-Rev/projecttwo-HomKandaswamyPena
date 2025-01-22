@@ -64,6 +64,8 @@ def main():
 
     payments : DataFrame = Payment(cleaned_data).get_results()
     payments.show()
+    payments_by_country : DataFrame = Payment(cleaned_data).get_results_by_country()
+    payments_by_country.show()
     payments_success: DataFrame = Payment(data_df).get_successful_transactions()
     payments_success.show()
 
