@@ -1,5 +1,6 @@
 import spark_singleton as ss
 from pyspark.sql import DataFrame
+from pyspark.sql.functions import year, month, hour
 
 class DataCleaner():
     spark = ss.SparkSingleton.getInstance()
@@ -18,6 +19,13 @@ class DataCleaner():
     def remove_corrupted_rows(self):
         data: DataFrame = self.__data
         return DataCleaner(data.replace(['null', 'NULL', 'Unknown', 'unknown'], None).dropna(how='any'))
+    
+    def split_datetime(self):
+        data: DataFrame = self.__data
+        return DataCleaner(data.withColumn('year', year(data['datetime']))
+                      .withColumn('month', month(data['datetime']))
+                      .withColumn('hour', hour(data['datetime']))
+                      .drop('datetime'))
     
     def display_data(self):
         data: DataFrame = self.__data
