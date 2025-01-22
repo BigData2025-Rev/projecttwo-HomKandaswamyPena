@@ -32,15 +32,16 @@ def main():
                     .data
     
     truncated_data: ProductPopularity = ProductPopularity(cleaned_data) \
-                                    .truncate_irrelevant_columns()
+                                    .truncate_irrelevant_columns() \
+                                    .filter_by_popularity()
     
-    # product_popularity: DataFrame = truncated_data.get_results().data
-    # product_popularity_by_country: DataFrame = truncated_data.get_results_by_country().data
+    product_popularity: DataFrame = truncated_data.get_results()
+    product_popularity_by_country: DataFrame = truncated_data.get_results_by_country()
     
-    # product_popularity.show(5, truncate=False)
-    # product_popularity_by_country.show(5, truncate=False)   
+    product_popularity.show(truncate=False)
+    product_popularity_by_country.show(truncate=False)   
 
-    truncated_data.get_results().save_results('product_popularity.csv')
+    
 
     top_category: DataFrame = TopCategory(cleaned_data).get_results()
     top_category.show()
