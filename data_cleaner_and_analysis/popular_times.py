@@ -1,9 +1,14 @@
 from pyspark.sql import functions as F
+from base_analysis import BaseAnalysis
 
-class PopularTimes:
+class PopularTimes(BaseAnalysis):
 
     def __init__(self, data):
         self.__data = data
+
+    @property
+    def data(self):
+        return self.__data
 
     def get_popular_times_overall(self):
         times_df = self.__data.withColumn('period',
