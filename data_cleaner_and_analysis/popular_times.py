@@ -41,4 +41,4 @@ class PopularTimes(BaseAnalysis):
                                 .when(F.col('month') == 11, 'November')
                                 .when(F.col('month') == 12, 'December')
                                 .otherwise('Invalid Month'))
-        return months_df.groupBy('country', 'month_name').count().orderBy(['country', 'month'])
+        return months_df.groupBy('country', 'month_name').count().orderBy(['country', 'count'], ascending=False)
