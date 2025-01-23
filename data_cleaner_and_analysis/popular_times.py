@@ -24,4 +24,4 @@ class PopularTimes(BaseAnalysis):
                                 .when((F.col('hour') >= 12) & (F.col('hour') < 18), "afternoon")
                                 .when((F.col('hour') >= 18) & (F.col('hour') < 24), "evening")
                                 .otherwise('off-hours'))
-        return times_df.groupBy('country', 'period').count().orderBy('count', ascending=False).limit(10)
+        return times_df.groupBy('country', 'period').count().orderBy('count', ascending=False)
