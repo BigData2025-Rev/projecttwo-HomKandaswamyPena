@@ -48,11 +48,15 @@ def display_kandaswamy_results(data):
     popular_times_country: DataFrame = PopularTimes(data).get_popular_times_countries()
     popular_times_country.show()
 
+    popular_months: DataFrame = PopularTimes(data).get_popular_months()
+    popular_months.show()
+
     PopularLocations(popular_countries).save_results('popular_countries.csv')
     PopularLocations(popular_cities).save_results('popular_cities.csv')
 
     PopularTimes(popular_times_overall).save_results('popular_times_overall.csv')
     PopularTimes(popular_times_country).save_results('popular_times_country.csv')
+    PopularTimes(popular_months).save_results('popular_months.csv')
 
 
 def display_hom_results(data):
